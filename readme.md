@@ -71,6 +71,10 @@ Depois de criar a imagem Docker, execute o seguinte comando para criar e executa
 
 Dentro do container Docker, antes de executar o Terraform, configure suas credenciais do GCP e defina o projeto padrão. Execute o seguinte comando:
 
+        gcloud auth application-default login --no-launch-browser
+
+Faça login na gcp e receba o "authorization code in gcloud CLI" após digitar no prompt de comando o password execute o seguinte comando:  
+
         gcloud auth application-default set-quota-project SEU_PROJETO
 
 Agora navegue até a pasta `iac_bigquery` e execute os seguintes comandos para inicializar e aplicar o Terraform:
