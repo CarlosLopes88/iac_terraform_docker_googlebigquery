@@ -45,7 +45,7 @@ obs: o arquivo requirements instala o dotenv e o  google-cloud-storage em seu am
         pip install python-dotenv
         pip install google-cloud-storage requests
 
-ou:
+ou:  
         pip instal requirements
 
 ## Passo a Passo de Implementação
