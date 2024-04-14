@@ -24,7 +24,6 @@ iac_terraform_docker_googlebigquery/
 ├── .gitignore  
 └── .env  
 
-
 ## Pré-requisitos para Execução
 
 Para executar este projeto, você precisará de:
@@ -33,6 +32,21 @@ Para executar este projeto, você precisará de:
 - Credenciais do Google Cloud Platform (GCP) em formato JSON.
 - Um projeto criado na GCP.
 - Arquivos CSV contendo os dados a serem carregados no BigQuery.
+
+Para ativar um ambiente virtual
+
+        python -m venv .venv (windows)
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+        .\.venv\Scripts\activate
+
+
+obs: o arquivo requirements instala o dotenv e o  google-cloud-storage em seu ambiente .venv que pode ser feito ...
+
+        pip install python-dotenv
+        pip install google-cloud-storage requests
+
+ou:
+        pip instal requirements
 
 ## Passo a Passo de Implementação
 
@@ -44,15 +58,23 @@ Antes de iniciar o container Docker, execute o arquivo Python `ingestion.py` par
 
 ### 2. Criar uma Imagem Docker e Executar um Container
 
-Após criar e enviar os arquivos para o bucket, execute os seguintes comandos para criar a imagem Docker e executar um container:
+Após criar e enviar os arquivos para o bucket. abra o terminal ou prompt de comando e navegue até a pasta iac_terraform_docker_googlebigquery. Em seguida, execute os seguintes comandos para criar a imagem Docker:
 
         docker build -t image-modelagem-iac:iac_project .
+
+Depois de criar a imagem Docker, execute o seguinte comando para criar e executar um container Docker:
+
         docker run -dit --name my-dw-iac -v "diretório local a ser mapeado":/iac_bigquery image-modelagem-iac:iac_project /bin/bash
 
 ### 3. Executar o Terraform na Máquina Cliente
 
-Dentro do container Docker, navegue até a pasta `iac_bigquery` e execute os seguintes comandos para inicializar e aplicar o Terraform:
+Dentro do container Docker, antes de executar o Terraform, configure suas credenciais do GCP e defina o projeto padrão. Execute o seguinte comando:
 
+        gcloud auth application-default set-quota-project SEU_PROJETO
+
+Agora navegue até a pasta `iac_bigquery` e execute os seguintes comandos para inicializar e aplicar o Terraform:
+
+        bash
         cd /iac_bigquery
         terraform init
         terraform apply
