@@ -1,0 +1,16 @@
+product_id,product_name,product_category
+1,Smartphone,Celular
+2,Tablet,Celular
+3,Notebook,Computador
+4,Smartwatch,Dispositivo Vestível
+5,Smart TV,TV
+6,Fone de Ouvido sem Fio,Acessório de Áudio
+7,Impressora,Periférico de Computador
+8,Roteador,Rede
+9,Câmera DSLR,Fotografia
+10,Console de Videogame,Entretenimento
+11,Drone,Dispositivo Eletrônico
+12,Mouse,Periférico de Computador
+13,Teclado,Periférico de Computador
+14,Monitor,Periférico de Computador
+15,Disco Rígido Externo,Armazenamento

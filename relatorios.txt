@@ -1,0 +1,31 @@
+# Lab 1 - Automação da Infraestrutura de Consultas SQL com Terraform e BigQuery no Google Cloud Platform
+# Relatórios do DW
+
+# Consulta Simples - Listar o total de vendas por cliente
+
+SELECT c.customer_name, ROUND(SUM(f.amount_sale),2) AS sales
+FROM `modelagem-dw-iac.sales_dw_dataset.tb_customers` c
+JOIN `modelagem-dw-iac.sales_dw_dataset.tb_sale` f ON c.customer_id = f.customer_id
+GROUP BY c.customer_name;
+
+
+# Consulta Intermediária - Listar o total de vendas por categoria para cliente do Tipo_1
+
+SELECT p.product_category, ROUND(SUM(f.amount_sale),2) AS sales
+FROM `modelagem-dw-iac.sales_dw_dataset.tb_product` p
+JOIN `modelagem-dw-iac.sales_dw_dataset.tb_sale` f ON p.product_id = f.product_id
+JOIN `modelagem-dw-iac.sales_dw_dataset.tb_customers` c ON f.customer_id = c.customer_id
+WHERE c.customer_type = 'revenda'
+GROUP BY p.product_category;
+
+
+# Consulta Avançada - Produtos com média de vendas superior a 600 no ano de 2023
+
+SELECT p.product_name, ROUND(AVG(f.amount_sale),2) AS avg_sales
+FROM `modelagem-dw-iac.sales_dw_dataset.tb_customers` c
+JOIN `modelagem-dw-iac.sales_dw_dataset.tb_sale` f ON f.customer_id = c.customer_id
+JOIN `modelagem-dw-iac.sales_dw_dataset.tb_product` p ON p.product_id = f.product_id
+WHERE f.date BETWEEN '2023-01-01' AND '2023-12-31'
+GROUP BY p.product_name
+HAVING ROUND(AVG(f.amount_sale),2) > 200
+ORDER BY avg_sales DESC;
