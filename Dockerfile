@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Mantenedor do Dockerfile
-LABEL maintainer="CEL"
+LABEL maintainer="SUA TAG AQUI"
 
 # Atualizar os pacotes do sistema e instalar dependências necessárias
 RUN apt-get update && \
@@ -18,8 +18,8 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
     rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 # Criar a pasta /iac_bigquery como um ponto de montagem para um volume
-RUN mkdir /iac_bigquery
-VOLUME /iac_bigquery
+RUN mkdir /"sua pasta"
+VOLUME /"sua pasta"
 
 # Adicionar o repositório do Google Cloud SDK e instalar
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
