@@ -47,7 +47,7 @@ obs: o arquivo requirements instala o dotenv e o  google-cloud-storage em seu am
 
 ou:  
 
-        pip instal requirements
+        pip instal requirements  
 
 
 ## Passo a Passo de Implementação
@@ -60,7 +60,7 @@ Antes de iniciar o container Docker, execute o arquivo Python `ingestion.py` par
 
 ### 2. Criar uma Imagem Docker e Executar um Container
 
-Após criar e enviar os arquivos para o bucket. abra o terminal ou prompt de comando e navegue até a pasta iac_terraform_docker_googlebigquery. Em seguida, execute os seguintes comandos para criar a imagem Docker:
+Após criar e enviar os arquivos para o bucket, abra o terminal ou prompt de comando e navegue até a pasta iac_terraform_docker_googlebigquery. Em seguida, execute os seguintes comandos para criar a imagem Docker:
 
         docker build -t image-modelagem-iac:iac_project .
 
