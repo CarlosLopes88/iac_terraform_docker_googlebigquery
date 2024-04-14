@@ -40,10 +40,9 @@ Para ativar um ambiente virtual
         .\.venv\Scripts\activate
 
 
-obs: o arquivo requirements instala o dotenv e o  google-cloud-storage em seu ambiente .venv que pode ser feito ...
+obs: o arquivo requirements instala o dotenv, google-cloud-storage e requests em seu ambiente .venv que pode ser feito ...
 
-        pip install python-dotenv
-        pip install google-cloud-storage requests
+        pip install python-dotenv google-cloud-storage requests  
 
 ou:  
 

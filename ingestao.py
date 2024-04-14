@@ -35,6 +35,6 @@ url_arquivo3 = os.getenv("URL_ARQUIVO_3")
 bucket = criar_bucket(nome_bucket)
 
 # Envie os arquivos diretamente do GitHub para o bucket
-enviar_arquivo_para_bucket(bucket, url_arquivo1, "arquivo1.csv")
-enviar_arquivo_para_bucket(bucket, url_arquivo2, "arquivo2.csv")
-enviar_arquivo_para_bucket(bucket, url_arquivo3, "arquivo3.csv")
+enviar_arquivo_para_bucket(bucket, url_arquivo1, "tb_customer.csv")
+enviar_arquivo_para_bucket(bucket, url_arquivo2, "tb_product.csv")
+enviar_arquivo_para_bucket(bucket, url_arquivo3, "tb_sales.csv")
