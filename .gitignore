@@ -1,0 +1,5 @@
+# Ignorar a pasta .venv
+.venv/
+
+# Ignorar a chave JSON do Google
+modelagem-dw-iac-*.json
