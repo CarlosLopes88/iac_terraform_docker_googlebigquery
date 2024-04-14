@@ -6,23 +6,23 @@ Este projeto tem como objetivo criar um ambiente de Data Warehouse (DW) na Googl
 
 A estrutura de pastas do projeto é a seguinte:
 
-iac_terraform_docker_googlebigquery/
-│
-├── data/
-│   ├── tb_customers.csv
-│   ├── tb_product.csv
-│   └── tb_sales.csv
-│
-├── iac_bigquery/
-│   └── main.tf
-│
-├── ingestion.py
-├── Dockerfile
-├── suachavegoogle.json
-├── README.md
-├── requirements.txt
-├── .gitignore
-└── .env
+iac_terraform_docker_googlebigquery/  
+│  
+├── data/  
+│   ├── tb_customers.csv  
+│   ├── tb_product.csv  
+│   └── tb_sales.csv  
+│  
+├── iac_bigquery/  
+│   └── main.tf  
+│  
+├── ingestion.py  
+├── Dockerfile  
+├── suachavegoogle.json  
+├── README.md  
+├── requirements.txt  
+├── .gitignore  
+└── .env  
 
 
 ## Pré-requisitos para Execução
@@ -46,14 +46,12 @@ Antes de iniciar o container Docker, execute o arquivo Python `ingestion.py` par
 
 Após criar e enviar os arquivos para o bucket, execute os seguintes comandos para criar a imagem Docker e executar um container:
 
-
         docker build -t image-modelagem-iac:iac_project .
         docker run -dit --name my-dw-iac -v "diretório local a ser mapeado":/iac_bigquery image-modelagem-iac:iac_project /bin/bash
 
 ### 3. Executar o Terraform na Máquina Cliente
 
 Dentro do container Docker, navegue até a pasta `iac_bigquery` e execute os seguintes comandos para inicializar e aplicar o Terraform:
-
 
         cd /iac_bigquery
         terraform init
